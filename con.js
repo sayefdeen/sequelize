@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Sequelize, Model } = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 const init = () => {
   const { PORT, DB_HOST, DB_USERNAME, DB_PASS, DB_NAME } = process.env;
