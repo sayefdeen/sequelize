@@ -6,7 +6,8 @@ const init = () => {
 
   const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASS, {
     host: DB_HOST,
-    dialect: 'postgres'
+    dialect: 'postgres',
+    logging: false
   });
   return sequelize;
 };
