@@ -13,7 +13,7 @@ const hasRelation = () => {
     };
   };
 
-  Users.hasMany(Posts, common, { foreignKey: 'user_id' });
+  Users.hasMany(Posts, common({ foreignKey: 'user_id' }));
 
   Users.belongsToMany(
     Types,
@@ -33,11 +33,11 @@ const hasRelation = () => {
     })
   );
 
-  UsersTypes.belongsTo(Types, { foreignKey: 'type_id' });
-  UsersTypes.belongsTo(Users, { foreignKey: 'user_id' });
+  UsersType.belongsTo(Types, { foreignKey: 'type_id' });
+  UsersType.belongsTo(Users, { foreignKey: 'user_id' });
 
-  Users.hasMany(UsersTypes, common({ foreignKey: 'user_id' }));
-  Types.hasMany(UsersTypes, common({ foreignKey: 'type_id' }));
+  Users.hasMany(UsersType, common({ foreignKey: 'user_id' }));
+  Types.hasMany(UsersType, common({ foreignKey: 'type_id' }));
 };
 
 app.listen(PORT, async () => {
@@ -47,10 +47,7 @@ app.listen(PORT, async () => {
     .then(async () => {
       console.log('data base is connected');
       hasRelation();
-      await Users.sync({ force: true });
-      await Posts.sync({ force: true });
-      await Types.sync({ force: true });
-      await UsersTypes.sync({ force: true });
+      await sequelize.sync({ force: true });
     })
     .catch((err) => console.error(err));
 });

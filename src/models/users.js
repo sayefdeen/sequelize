@@ -1,6 +1,5 @@
 const { Model } = require('sequelize');
 const { commonModel, commonOptions } = require('./common');
-const Posts = require('./posts');
 
 module.exports = (sequelize, DataTypes) => {
   const { ENUM, STRING, TEXT } = DataTypes;
@@ -30,8 +29,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { sequelize, ...commonOptions, tableName: 'users' }
   );
-  Users.beforeSync(() => console.log('b4 creating the user table'));
-  Users.afterSave(() => console.log('after creating the users table'));
-
   return Users;
 };

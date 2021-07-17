@@ -9,7 +9,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { sequelize, ...commonOptions, tableName: 'users_types' }
   );
-  UsersTypes.beforeSync();
-  UsersTypes.afterSync();
   return UsersTypes;
 };

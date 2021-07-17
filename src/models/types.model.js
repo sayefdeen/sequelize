@@ -17,7 +17,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { ...commonOptions, sequelize, tableName: 'types' }
   );
-  Posts.beforeSync();
-  Posts.afterSync();
   return Types;
 };

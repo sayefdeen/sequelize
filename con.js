@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 const init = () => {
   const { PORT, DB_HOST, DB_USERNAME, DB_PASS, DB_NAME } = process.env;
@@ -12,4 +13,4 @@ const init = () => {
   return sequelize;
 };
 
-module.exports = { sequelize: init() };
+module.exports = { sequelize: init(), DataTypes };

@@ -20,8 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     },
     { sequelize, ...commonOptions, tableName: 'posts' }
   );
-
-  Posts.beforeSync(() => console.log('b4 the creating of the posts table'));
-  Posts.afterSync(() => console.log('after the creating of the posts table'));
   return Posts;
 };
